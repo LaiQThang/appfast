@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="../css/easion.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+    <script src="../js/chart-js-config.js"></script>
+    <title>Tiều đề</title>
+</head>
+
+<body>
+    <div class="dash">
+        <div class="dash-app">
+            <main class="dash-content">
+                <div class="container-fluid">
+                    <h1 class="dash-title">Trang chủ / Tài khoản</h1>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card easion-card">
+                                <div class="card-header">
+                                    <div class="easion-card-icon">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                    <div class="easion-card-title">Danh sách tài khoản</div>
+                                </div>
+                                <div class="card-body ">
+                                    <table id="datatable" class="cell-border">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">id</th>
+                                                <th scope="col">Tên</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Quyền</th>
+                                                <th scope="col">Chức năng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>id 1 </td>
+                                                <td>name 1</td>
+                                                <td>email 1</td>
+                                                <td>role 1</td>
+                                                <td class="text-center">
+                                                    <a href="user-edit.html" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                    <a data-url="" class="btn btn-danger btn-del-confirm"><i
+                                                            class="far fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>id 2 </td>
+                                                <td>name 2</td>
+                                                <td>email 2</td>
+                                                <td>role 2</td>
+                                                <td class="text-center">
+                                                    <a href="user-edit.html" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                    <a data-url="" class="btn btn-danger btn-del-confirm"><i
+                                                            class="far fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>id 3</td>
+                                                <td>name 3</td>
+                                                <td>email 3</td>
+                                                <td>role 3</td>
+                                                <td class="text-center">
+                                                    <a href="user-edit.html" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                    <a data-url="" class="btn btn-danger btn-del-confirm"><i
+                                                            class="far fa-trash-alt"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="../js/easion.js"></script>
+    <script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#datatable').DataTable({
+                "language": {
+                    "lengthMenu": "Hiển thị _MENU_ dòng",
+                    "zeroRecords": "Không có dữ liệu",
+                    "info": "Hiển thị trang _PAGE_ trên _PAGES_ trang",
+                    "infoEmpty": "Không có dữ liệu",
+                    "search": "Tìm kiếm: ",
+                    paginate: {
+                        previous: '‹',
+                        next: '›'
+                    },
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
