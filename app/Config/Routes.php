@@ -28,14 +28,31 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'User\HomeController::index');
+$routes->get('error/404', function () {
+    return view('errors/html/error_404');
+});
 
 
 $routes->group('admin', function($routes) {
     $routes->get('home', 'Admin\HomeController::index');
+    $routes->get('login', 'Admin\LoginController::index');
+    $routes->post('login', 'Admin\LoginController::login');
+    $routes->get('logout', 'Admin\LoginController::logout');
     $routes->group('user', function($routes) {
         $routes->get('list', 'Admin\UserController::list');
         $routes->get('add', 'Admin\UserController::add');
         $routes->post('create', 'Admin\UserController::create');
+        $routes->get('edit/(:num)', 'Admin\UserController::edit/$1');
+        $routes->post('update', 'Admin\UserController::update');
+        $routes->get('delete/(:num)', 'Admin\UserController::delete/$1');
+    });
+    $routes->group('purchases', function($routes){
+        $routes->get('list', 'Admin\PurchasesController::list');
+        $routes->get('add', 'Admin\PurchasesController::add');
+        $routes->post('create', 'Admin\PurchasesController::create');
+        $routes->get('edit/(:num)', 'Admin\PurchasesController::edit/$1');
+        $routes->post('update', 'Admin\PurchasesController::update');
+        $routes->get('delete/(:num)', 'Admin\PurchasesController::delete/$1');
     });
 });
 /*

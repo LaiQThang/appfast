@@ -8,6 +8,7 @@ class UpDbSeeder extends Seeder
 {
     public function run()
     {
-        $this->call('UserSeeder');
+        // $this->call('UserSeeder');
+        $this->call('PurchaseSeeder');
     }
 }

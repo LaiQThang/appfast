@@ -20,8 +20,8 @@
                     <a href="javascript::void(0)" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-cube"></i> Gói dịch vụ </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="purchase-list.html" class="dash-nav-dropdown-item">Danh sách</a>
-                        <a href="purchase-add.html" class="dash-nav-dropdown-item">Thêm mới</a>
+                        <a href="/admin/purchases/list" class="dash-nav-dropdown-item">Danh sách</a>
+                        <a href="/admin/purchases/add" class="dash-nav-dropdown-item">Thêm mới</a>
                     </div>
                 </div>
                 <div class="dash-nav-dropdown">
