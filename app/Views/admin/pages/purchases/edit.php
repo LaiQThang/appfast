@@ -2,6 +2,9 @@
     <div class="container-fluid">
         <h1 class="dash-title">Trang chủ / Gói dịch vụ / Sửa</h1>
         <div class="row">
+            <div class="col-12">
+                <?= view('messages/messages') ?>
+            </div>
             <div class="col-xl-12">
                 <div class="card easion-card">
                     <div class="card-header">

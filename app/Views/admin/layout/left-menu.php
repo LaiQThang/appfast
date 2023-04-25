@@ -32,7 +32,7 @@
                         <a href="comment-add.html" class="dash-nav-dropdown-item">Thêm mới</a>
                     </div>
                 </div>
-                <a href="contacts.html" class="dash-nav-item">
+                <a href="admin/contact/list" class="dash-nav-item">
                     <i class="fas fa-info"></i>Liên hệ 
                 </a>
             </nav>

@@ -32,11 +32,15 @@ $routes->get('error/404', function () {
     return view('errors/html/error_404');
 });
 
+$routes->get('login', 'Admin\LoginController::index');
+$routes->post('login', 'Admin\LoginController::login');
 
-$routes->group('admin', function($routes) {
+$routes->group('user', function($routes) {
+    $routes->post('send', 'User\SendController::send');
+});
+
+$routes->group('admin', ['filter' => 'adminFilter'], function($routes) {
     $routes->get('home', 'Admin\HomeController::index');
-    $routes->get('login', 'Admin\LoginController::index');
-    $routes->post('login', 'Admin\LoginController::login');
     $routes->get('logout', 'Admin\LoginController::logout');
     $routes->group('user', function($routes) {
         $routes->get('list', 'Admin\UserController::list');
@@ -53,6 +57,9 @@ $routes->group('admin', function($routes) {
         $routes->get('edit/(:num)', 'Admin\PurchasesController::edit/$1');
         $routes->post('update', 'Admin\PurchasesController::update');
         $routes->get('delete/(:num)', 'Admin\PurchasesController::delete/$1');
+    });
+    $routes->group('contact', function($routes){
+        $routes->get('list', 'Admin\ContactController::list');
     });
 });
 /*

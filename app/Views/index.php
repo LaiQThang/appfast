@@ -520,67 +520,33 @@
                     <div class="tab-content">
                         <div class="tab-pane active fade show" id="tab1">
                             <div class="row text-center">
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">
-                                            <h2>Dùng thử</h2>
-                                            <h3>$0/month</h3>
-                                        </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                        </div>
-                                        <div class="pricing-table-sign-up">
-                                            <a href="#" class="btn btn-dark btn-radius btn-brd grd1 effect-1">Mua ngay</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="pricing-table pricing-table-highlighted">
-                                        <div class="pricing-table-header grd1">
-                                            <h2>Gói thanh toán theo năm</h2>
-                                            <h3>$400/năm</h3>
-                                        </div>
-                                        <div class="pricing-table-space"></div>
-                                        <div class="pricing-table-text">
-                                            <p>This is a perfect choice for small businesses and startups.</p>
-                                        </div>
-                                        <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>150</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
-                                        </div>
-                                        <div class="pricing-table-sign-up">
-                                            <a href="#" class="btn btn-dark btn-radius btn-brd grd1 effect-1">Mua ngay</a>
-                                        </div>
-                                    </div>
-                                </div>
 
+                                <?php foreach($puchases as $value): ?>
                                 <div class="col-md-4">
                                     <div class="pricing-table pricing-table-highlighted">
                                         <div class="pricing-table-header grd1">
-                                            <h2>Vĩnh viễn</h2>
-                                            <h3>$5000/1 lần duy nhất</h3>
+                                            <h2><?= $value['name'] ?></h2>
+                                            <h3><?= $value['price'] ?></h3>
                                         </div>
                                         <div class="pricing-table-space"></div>
+                                            <div class="pricing-table-text">
+                                                <p>
+                                            <?= $value['id'] == 2 ? "This is a perfect choice for small businesses and startups." : "" ?>
+                                                </p>
+                                            </div>
                                         <div class="pricing-table-features">
-                                            <p><i class="fa fa-envelope-o"></i> <strong>250</strong> Email Addresses</p>
-                                            <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
-                                            <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
-                                            <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
+                                            <p><i class="fa fa-envelope-o"></i> <strong> <?= $value['email_address'] ?></strong>Email Addresses</p>
+                                            <p><i class="fa fa-rocket"></i> <strong><?= $value['storage'] ?></strong> of Storage</p>
+                                            <p><i class="fa fa-database"></i> <strong><?= $value['databases'] ?></strong> Databases</p>
+                                            <p><i class="fa fa-link"></i> <strong><?= $value['domain'] ?></strong> Domains</p>
+                                            <p><i class="fa fa-life-ring"></i> <strong><?= $value['support'] ?></strong> Support</p>
                                         </div>
                                         <div class="pricing-table-sign-up">
                                             <a href="#" class="btn btn-dark btn-radius btn-brd grd1 effect-1">Mua ngay</a>
                                         </div>
                                     </div>
                                 </div>
+                                <?php endforeach ?>
                             </div><!-- end row -->
                         </div><!-- end pane -->
                     </div><!-- end content -->
@@ -680,6 +646,7 @@
         </div><!-- end container -->
     </div><!-- end section -->
 
+    
     <div id="purchase" class="parallax section db" style="background-image:url('uploads/pr_bg.jpg');">
         <div class="container">
             <div class="section-title text-center">
@@ -724,8 +691,9 @@
                 <div class="col-md-12">
                     <div class="contact_form">
                         <div id="message"></div>
-                        <form id="contactform" class="row" action="contact.php" name="contactform" method="post">
+                        <form id="contactform" class="row" action="<?= base_url()?>user/send" name="contactform" method="post">
                             <fieldset class="row">
+                               
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Họ">
                                 </div>
@@ -733,13 +701,13 @@
                                     <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Tên">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="mail" id="email" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" name="phone" id="phone" class="form-control" placeholder="Điện thoại">
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Nội dung.."></textarea>
+                                    <textarea class="form-control" name="content" id="comments" rows="6" placeholder="Nội dung.."></textarea>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-center">
                                     <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Gửi hỗ trợ</button>

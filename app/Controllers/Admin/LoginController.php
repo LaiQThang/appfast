@@ -21,6 +21,10 @@ class LoginController extends BaseController
     public function index()
     {
 
+        if(session()->has('user_login')){
+            return redirect('admin/home');
+        }
+
         $data['title'] = "Đăng nhập";
        
         return view('admin/pages/user/login', $data);
@@ -33,7 +37,7 @@ class LoginController extends BaseController
             return redirect('admin/home');
         }
         elseif($result['status'] === ResultUtils::STATUS_CODE_ERR){
-            return redirect('admin/login')->with($result['messageCode'],$result['message']);
+            return redirect('login')->with($result['messageCode'],$result['message']);
         }
         return redirect('home');
     }
@@ -42,7 +46,7 @@ class LoginController extends BaseController
 
         $this->services->logoutUser();
 
-        return redirect('admin/login');
+        return redirect('login');
     }
 }
 

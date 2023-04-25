@@ -20,7 +20,7 @@
             <?= view('messages/messages')?>
             <div class="card-header bg-primary text-white"> Please sign in </div>
             <div class="card-body">
-                <form action="admin/login" method="post">
+                <form action="login" method="post">
                     <div class="form-group">
                         <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                     </div>
